@@ -1,0 +1,59 @@
+'''
+Recursvie fib numbers
+Problem
+Generate the fib numbers where 
+Fib(00 = 0
+fib(1) = 1
+fib(n) = fib(n-1) + fib(n-2)
+
+Constraints:
+Input
+  int representing nth fib number
+
+Output
+  nth fib number
+
+Ideas:
+
+Brute force:
+recursive fib with tc 2^n sp O(n) (because of call stacks
+
+Improve to linear with dp
+store fib(n) after each calcation tc becomes O(n) no repeated work sc O(N)
+
+Linear impl idea:
+Have a map of computed fib numbers
+Add to map as we compute
+while computing
+ check map for wanted fib number
+ if in
+  return solution
+ else
+  calculate
+  add to map
+'''
+
+
+def fib(n):
+    sols = {0: 0, 1: 1}
+    return fibH(n, sols)
+
+
+def fibH(n, sols):  # fib(2)
+    if n in sols:
+        return sols[n]
+    sol = fibH(n-1, sols) + fibH(n-2, sols)
+    sols[n] = sol
+    return sol
+
+
+'''
+(2) 1 + 0 = 1
+(3) 2 + 1 = 3
+(2) 1 + 0
+
+4 => 0 1 1 2 (3)
+{0:0, 1:1, 2: 1, 3:2, 4: 3}
+(3)1+1 = 2 (2) 1
+
+'''

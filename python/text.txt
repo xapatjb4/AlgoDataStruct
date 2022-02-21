@@ -1,0 +1,11 @@
+'''
+abc
+zabcd
+
+abc
+zabcd
+
+ab                         abc
+zabcd                      zabc
+
+'''
